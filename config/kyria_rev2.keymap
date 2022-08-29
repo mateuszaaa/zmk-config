@@ -43,7 +43,7 @@
 		symbols {
 			bindings = <
     &trans &kp EXCL  &kp AT   &kp HASH &kp DOLLAR   &kp PERCENT                                          &kp CARET &kp AMPS  &kp STAR  &kp PIPE  &kp TILDE    &trans
-    &trans &kp UNDER &kp LBRC &kp LPAR &kp LS(LBRC) &kp LT                                               &kp GT    &kp RPAR  &kp LS(RBRC) &kp RBRC  &kp MINUS  &trans
+    &trans &kp UNDER &kp LBRC &kp LS(LBRC) &kp LPAR &kp LT                                               &kp GT    &kp RPAR  &kp LS(RBRC) &kp RBRC  &kp MINUS  &trans
     &trans &none     &kp DQT  &kp SQT  &kp GRAVE    &none       &trans &trans              &trans &trans &none     &kp GRAVE &kp SQT      &kp DQT   &none        &trans
     &trans &trans    &trans   &trans   &trans       &trans                                               &trans    &trans    &trans       &trans    &trans       &trans
 			>;
