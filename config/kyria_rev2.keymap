@@ -23,9 +23,9 @@
 		default_layer {
 			bindings = <
     &kp TAB        &kp Q    &kp W    &kp E     &kp R     &kp T                                                &kp Y   &kp U    &kp I     &kp O   &kp P    &kp BSPC
-    &mt LSHIFT ESC &kp A    &kp S    &kp D     &kp F     &kp G                                                &kp H   &kp J    &kp K     &kp L   &kp SEMI &mt RSHIFT ESC
+    &mt LSHIFT ESC &kp A    &kp S    &kp D     &kp F     &kp G                                                &kp H   &kp J    &kp K     &kp L   &kp SEMI &mt RSHIFT RETURN
     &kp LCTRL &kp Z &kp X &kp C &kp V &kp B &caps_word     &kp DEL          &kp DEL   &caps_word     &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
-                &kp LGUI &kp LALT &kp SPACE &kp ENTER &mo SYS                         &mo SYS   &mo NUM &kp SPACE &mo SYMB &kp INSERT 
+                &kp LGUI &kp LALT &kp SPACE &mo NUM &mo SYS                         &mo SYS   &mo NUM &lt SPACE SYMB &mo SYMB &kp INSERT 
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
@@ -43,7 +43,7 @@
 		symbols {
 			bindings = <
     &trans &kp EXCL  &kp AT   &kp HASH &kp DOLLAR   &kp PERCENT                                          &kp CARET &kp AMPS  &kp STAR  &kp PIPE  &kp TILDE    &trans
-    &trans &kp UNDER &kp LBKT &kp LS(LBKT) &kp LPAR &kp LT                                               &kp GT    &kp RPAR  &kp LS(RBKT) &kp RBKT  &kp MINUS  &trans
+    &trans &kp UNDER &kp LBKT &kp LS(LBKT) &kp LPAR &kp LT                                               &kp PLUS  &kp RPAR  &kp LS(RBKT) &kp RBKT  &kp MINUS  &trans
     &trans &none     &kp DQT  &kp SQT  &kp GRAVE    &none       &trans &trans              &trans &trans &none     &kp GRAVE &kp SQT      &kp DQT   &kp KP_EQUAL        &trans
     &trans &trans    &trans   &trans   &trans       &trans                                               &trans    &trans    &trans       &trans    &trans       &trans
 			>;
