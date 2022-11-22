@@ -14,6 +14,7 @@
 #define NUM 1
 #define SYMB 2
 #define SYS 3
+#define BLANK 3
 
 
 / {
@@ -25,7 +26,7 @@
     &kp TAB        &kp Q    &kp W    &kp E     &kp R     &kp T                                                      &kp Y    &kp U  &kp I     &kp O   &kp P    &kp BSPC
     &mt LSHIFT ESC &kp A    &kp S    &kp D     &kp F     &kp G                                                      &kp H    &kp J  &kp K     &kp L   &kp SEMI &mt RSHIFT RETURN
     &kp LCTRL      &kp Z    &kp X    &kp C     &kp V     &kp B     &kp PSCRN &kp DEL          &kp DEL   &caps_word  &kp N    &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
-                                     &kp LGUI  &kp LALT  &kp SPACE &mo NUM   &mo SYS          &mo SYS   &mo NUM     &mo SYMB &none &kp INSERT
+                                     &kp LGUI  &kp LALT  &kp SPACE &mo NUM   &mo SYS          &mo SYS   &mo NUM     &mo SYMB &mo BLANK &kp INSERT
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
@@ -56,6 +57,16 @@
     &none &none     &kp LEFT  &kp UP    &kp DOWN  &kp RIGHT                                               &kp HOME  &kp PG_DN     &kp PG_UP    &kp END      &none      &none
     &none &kp LG(0) &kp LG(1) &kp LG(2) &kp LG(3) &kp LG(4) &none &none        &out OUT_USB &out OUT_BLE &kp LG(5) &kp LG(6)     &kp LG(7)    &kp LG(8)    &kp LG(9)  &none
     &trans &trans    &trans   &trans    &trans    &trans                                                  &trans    &trans        &trans       &trans    &trans       &trans
+			>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+		};
+
+		blank {
+			bindings = <
+    &none &none &none &none &none &none                                &none &none &none &none &none &none
+    &none &none &none &none &none &none                                &none &none &none &none &none &none
+    &none &none &none &none &none &none &none &none        &none &none &none &none &none &none &none &none
+                &none &none &none &none &none &none        &none &none &none &none &none &none
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
