@@ -14,7 +14,7 @@
 #define NUM 1
 #define SYMB 2
 #define SYS 3
-#define BLANK 3
+#define BLANK 4
 
 
 / {
