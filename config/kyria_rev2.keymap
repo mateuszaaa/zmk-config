@@ -18,6 +18,37 @@
 
 
 / {
+    behaviors {
+        td_rpar_dqt: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_RPAR_DQT";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RPAR>, <&kp DQT>;
+        };
+        td_rcbrkt_sqt: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_RCBRKT_SQT";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LS(RBKT)>, <&kp SQT>;
+        };
+        td_rbrkt_grave: tap_dance_2 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_RBRKT_GRAVE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RBKT>, <&kp GRAVE>;
+        };
+        td_space_under_space: tap_dance_3 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SPACE_UNDER_SPACE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo SPACE>, <&kp UNDER>, <&kp SPACE>;
+        };
+    };
+
 	keymap {
 		compatible = "zmk,keymap";
 
@@ -26,7 +57,7 @@
     &kp TAB        &kp Q    &kp W    &kp E     &kp R     &kp T                                                      &kp Y    &kp U  &kp I     &kp O   &kp P    &kp BSPC
     &mt LSHIFT ESC &kp A    &kp S    &kp D     &kp F     &kp G                                                      &kp H    &kp J  &kp K     &kp L   &kp SEMI &mt RSHIFT RETURN
     &kp LCTRL      &kp Z    &kp X    &kp C     &kp V     &kp B     &kp PSCRN &kp DEL          &kp DEL   &caps_word  &kp N    &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
-                                     &kp LGUI  &kp LALT  &kp SPACE &mo NUM   &mo SYS          &mo SYS   &mo NUM     &mo SYMB &mo BLANK &kp INSERT
+                                     &kp LGUI  &kp LALT  &td_space_under_space &mo NUM   &mo SYS          &mo SYS   &mo NUM     &mo SYMB &mo BLANK &kp INSERT
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
