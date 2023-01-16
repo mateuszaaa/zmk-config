@@ -47,6 +47,27 @@
             tapping-term-ms = <200>;
             bindings = <&kp SPACE>, <&kp UNDER>, <&kp SPACE>;
         };
+        td_at_under_7: tap_dance_4 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_AT_UNDER_7";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp N7>, <&kp AT>;
+        };
+        td_hash_under_8: tap_dance_5 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_HASH_UNDER_8";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp N8>, <&kp HASH>;
+        };
+        td_dollar_under_9: tap_dance_6 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_DOLLAR_UNDER_9";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp N9>, <&kp DOLLAR>;
+        };
     };
 
 	keymap {
@@ -74,10 +95,10 @@
 
 		symbols {
 			bindings = <
-    &trans &kp EXCL  &kp AT   &kp HASH &kp DOLLAR   &kp PERCENT                                          &kp CARET &kp LS(LBKT)  &kp STAR     &kp LS(RBKT)   &kp PIPE    &kp GRAVE
-    &trans &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                               &kp PLUS  &td_lpar_dqt  &td_amps_sqt &td_rpar_grave &kp MINUS   &kp DQT
-    &trans &kp N6 &kp N7 &kp N8 &kp N9 &kp N0       &trans &trans              &trans &trans &none     &kp LBKT      &kp KP_EQUAL &kp RBKT       &kp TILDE   &kp SQT
-    &trans &trans    &trans   &trans   &trans       &trans                                               &trans    &trans    &trans       &trans    &trans       &trans
+    &trans &kp EXCL  &td_at_under_7 &td_hash_under_8      &td_dollar_under_9 &kp PERCENT                                          &kp CARET &kp LS(LBKT)  &kp STAR     &kp LS(RBKT)   &kp PIPE    &kp GRAVE
+    &trans &kp UNDER &kp N4         &kp N5                &kp N6             &trans                                               &kp PLUS  &td_lpar_dqt  &td_amps_sqt &td_rpar_grave &kp MINUS   &kp DQT
+    &trans &trans    &kp N1         &kp N2                &kp N3             &trans       &trans &trans        &trans    &trans   &none     &kp LBKT      &kp KP_EQUAL &kp RBKT       &kp TILDE   &kp SQT
+    &trans &trans    &trans         &trans   &trans       &trans                                               &trans    &trans   &trans    &trans        &trans       &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
