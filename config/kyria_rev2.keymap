@@ -96,7 +96,7 @@
 		symbols {
 			bindings = <
     &trans &kp EXCL  &td_at_under_7 &td_hash_under_8      &td_dollar_under_9 &kp PERCENT                                          &kp CARET &kp LS(LBKT)  &kp STAR     &kp LS(RBKT)   &kp PIPE    &kp GRAVE
-    &trans &kp UNDER &kp N4         &kp N5                &kp N6             &trans                                               &kp PLUS  &td_lpar_dqt  &td_amps_sqt &td_rpar_grave &kp MINUS   &kp DQT
+    &trans &kp UNDER &kp N4         &kp N5                &kp N6             &kp N0                                               &kp PLUS  &td_lpar_dqt  &td_amps_sqt &td_rpar_grave &kp MINUS   &kp DQT
     &trans &trans    &kp N1         &kp N2                &kp N3             &trans       &trans &trans        &trans    &trans   &none     &kp LBKT      &kp KP_EQUAL &kp RBKT       &kp TILDE   &kp SQT
     &trans &trans    &trans         &trans   &trans       &trans                                               &trans    &trans   &trans    &trans        &trans       &trans
 			>;
