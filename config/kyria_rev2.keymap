@@ -33,32 +33,32 @@
         compatible = "zmk,combos";
         combo_left_esc {
             timeout-ms = <50>;
-            key-positions = <15 16>;
+            key-positions = <13 14>;
             bindings = <&kp ESC>;
         };
         combo_left_tab {
             timeout-ms = <50>;
-            key-positions = <16 17>;
+            key-positions = <14 15>;
             bindings = <&kp TAB>;
         };
         combo_caps_left {
             timeout-ms = <50>;
-            key-positions = <27 28>;
+            key-positions = <26 27>;
             bindings = <&caps_word>;
         };
         combo_right_backspace {
             timeout-ms = <50>;
-            key-positions = <22 23>;
+            key-positions = <21 22>;
             bindings = <&kp BSPC>;
         };
         combo_right_return {
             timeout-ms = <50>;
-            key-positions = <21 22>;
+            key-positions = <20 21>;
             bindings = <&kp RETURN>;
         };
         combo_right_leader {
             timeout-ms = <50>;
-            key-positions = <37 38>;
+            key-positions = <36 37>;
             bindings = <&kp BSLH>;
         };
     };
