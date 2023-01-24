@@ -16,9 +16,89 @@
 #define SYS 3
 #define BLANK 4
 
+&mt {
+    flavor = "hold-preferred";
+    tapping-term-ms = <150>;
+};
+
+&lt {
+    flavor = "balanced";
+    tapping-term-ms = <150>;
+};
 
 / {
-    behaviors {
+    combos {
+        compatible = "zmk,combos";
+        combo_caps_right {
+            timeout-ms = <50>;
+            key-positions = <20 21 22 23>;
+            bindings = <&caps_word>;
+        };
+        combo_caps_left {
+            timeout-ms = <50>;
+            key-positions = <14 15 16 17>;
+            bindings = <&caps_word>;
+        };
+        combo_left_space {
+            timeout-ms = <50>;
+            key-positions = <16 17>;
+            bindings = <&caps_word>;
+        };
+        combo_right_space {
+            timeout-ms = <50>;
+            key-positions = <20 21>;
+            bindings = <&caps_word>;
+        };
+        combo_left_return {
+            timeout-ms = <50>;
+            key-positions = <15 16>;
+            bindings = <&kp RETURN>;
+        };
+        combo_right_return {
+            timeout-ms = <50>;
+            key-positions = <21 22>;
+            bindings = <&kp RETURN>;
+        };
+        combo_left_esc {
+            timeout-ms = <50>;
+            key-positions = <14 15>;
+            bindings = <&kp ESC>;
+        };
+        combo_right_backspace {
+            timeout-ms = <50>;
+            key-positions = <21 22>;
+            bindings = <&kp BSPC>;
+        };
+        combo_right_leader {
+            timeout-ms = <50>;
+            key-positions = <20 21 22>;
+            bindings = <&kp BSLH>;
+        };
+};
+
+
+
+/ {
+    behaviors {T
+        am: alpha_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ALPHA_MT";
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+        as: alpha_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ALPHA_SFT";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+        // TAP_DANCES
         td_lpar_dqt: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_LPAR_DQT";
@@ -75,10 +155,10 @@
 
 		default_layer {
 			bindings = <
-    &kp TAB        &kp Q    &kp W    &kp E     &kp R     &kp T                                                      &kp Y    &kp U  &kp I     &kp O   &kp P    &kp BSPC
-    &mt LSHIFT ESC &kp A    &kp S    &kp D     &kp F     &kp G                                                      &kp H    &kp J  &kp K     &kp L   &kp SEMI &mt RSHIFT RETURN
-    &kp LCTRL      &kp Z    &kp X    &kp C     &kp V     &kp B     &kp PSCRN &kp DEL          &kp DEL   &caps_word  &kp N    &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
-                                     &kp LGUI  &kp LALT  &kp SPACE &mo NUM   &mo SYS          &mo SYS   &mo BLANK   &mo SYMB &mo BLANK &kp INSERT
+    &kp TAB         &kp Q         &kp W       &kp E       &kp R        &kp T                                                        &kp Y    &kp U        &kp I          &kp O        &kp P           &kp BSPC
+    &mt LSHIFT ESC  &as LSHIFT A  &am LALT S  &as LGUI D  &as LCTRL F  &kp G                                                        &kp H    &as RCTRL J  &as RGUI K     &as RALT L   &as RSHIFT SEMI &mt RSHIFT RETURN
+    &kp LCTRL       &kp Z         &kp X       &kp C       &kp V        &kp B     &kp PSCRN  &kp DEL          &kp DEL   &caps_word   &kp N    &kp M        &kp COMMA      &kp DOT      &kp FSLH        &kp BSLH
+                                             &kp LGUI    &kp LALT     &kp SPACE  &mo NUM    &mo SYS          &mo SYS   &mo BLANK   &mo SYMB &mo BLANK &kp INSERT
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
@@ -105,8 +185,8 @@
 
 		system {
 			bindings = <
-    &none &none     &none     &none     &none     &none                                                   &bt BT_PRV  &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT &bt BT_CLR
-    &none &none     &kp LEFT  &kp UP    &kp DOWN  &kp RIGHT                                               &kp HOME  &kp PG_DN     &kp PG_UP    &kp END      &none      &none
+    &none &none     &none     &kp UP     &none     &none                                                   &bt BT_PRV  &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT &bt BT_CLR
+    &none &none     &kp LEFT  &kp DOWN   &kp RIGHT &none                                               &kp HOME  &kp PG_DN     &kp PG_UP    &kp END      &none      &none
     &none &kp LG(0) &kp LG(1) &kp LG(2) &kp LG(3) &kp LG(4) &none &none        &out OUT_USB &out OUT_BLE &kp LG(5) &kp LG(6)     &kp LG(7)    &kp LG(8)    &kp LG(9)  &none
     &trans &trans    &trans   &trans    &trans    &trans                                                  &trans    &trans        &trans       &trans    &trans       &trans
 			>;
