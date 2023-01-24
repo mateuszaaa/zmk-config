@@ -26,6 +26,8 @@
     tapping-term-ms = <150>;
 };
 
+
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -75,11 +77,8 @@
             bindings = <&kp BSLH>;
         };
     };
-};
 
 
-
-/ {
     behaviors {T
         am: alpha_mods {
             compatible = "zmk,behavior-hold-tap";
