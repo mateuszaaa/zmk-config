@@ -10,11 +10,20 @@
 #include <dt-bindings/zmk/outputs.h>
 
 
-#define DEFAULT 0
+#define DEF 0
 #define NUM 1
 #define SYMB 2
 #define SYS 3
 #define BLANK 4
+#define SYMB2 6
+
+#define HMR_A as LSHIFT A
+#define HMR_D am LGUI D
+#define HMR_F am LCTRL F
+
+#define HMR_J &as RCTRL J
+#define HMR_K &am RGUI K
+#define HMR_COL &am RSHIFT  SEMI
 
 &mt {
     flavor = "hold-preferred";
@@ -140,38 +149,38 @@
 
 		default_layer {
 			bindings = <
-    &kp TAB         &kp Q         &kp W       &kp E       &kp R        &kp T                                                        &kp Y    &kp U        &kp I          &kp O        &kp P           &kp BSPC
-    &mt LSHIFT ESC  &as LSHIFT A  &kp S       &am LGUI D  &am LCTRL F  &kp G                                                        &kp H    &am RCTRL J  &am RGUI K     &kp L        &as RSHIFT SEMI &mt RSHIFT RETURN
-    &kp LCTRL       &kp Z         &kp X       &kp C       &kp V        &kp B     &kp PSCRN  &kp DEL          &kp DEL   &caps_word   &kp N    &kp M        &kp COMMA      &kp DOT      &kp FSLH        &kp BSLH
-                                             &kp RALT    &kp TAB    &kp SPACE  &kp BSPC  &kp BSPC          &mo SYS   &kp ESC   &mo SYMB &kp RETURN  &kp INSERT
+&none &kp Q    &kp W    &kp E     &kp R     &kp T                                                  &kp Y      &kp U    &kp I     &kp O   &kp P    &none
+&none &HMR_A   &kp S    &HMR_D    &HMR_F    &kp G                                                  &kp H      &HMR_J   &HMR_K    &kp L   &HMR_COL &none
+&none &kp Z    &kp X    &kp C     &kp V     &kp B &kp PSCRN &kp DEL        &kp INSERT &caps_word   &kp N      &kp M    &kp COMMA &kp DOT &kp FSLH &none
+               &kp LALT &tog DEF  &kp SPACE &none &none     &none          &none      &tog SYMB    &kp RETURN &kp LALT
+			>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+		};
+		symbols {
+			bindings = <
+&none &kp EXCL  &kp AT      &kp HASH &kp DOLLAR &kp PERCENT                             &kp CARET  &kp LS(LBKT) &kp STAR     &kp LS(RBKT) &kp BSPC   &none
+&none &kp UNDER &kp GRAVE   &kp SQT  &kp DQT    &kp TILDE                               &kp PLUS   &kp LPAR     &kp AMPS     &kp RPAR     &kp RETURN &none
+&none &none     &none       &none    &none      &none       &none &none     &none &none &none      &kp LBKT     &kp KP_EQUAL &kp RBKT     &kp TILDE  &none
+                            &kp LALT &tog DEF   &kp SPACE   &none &none     &none &none &tog NUM   &tog SYS     &kp LALT
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
 
 		numpad {
 			bindings = <
-    &trans &none     &none        &none    &none     &none                                      &none  &kp N7 &kp N8 &kp N9 &none  &trans
-    &trans &kp SLASH &kp STAR &kp PLUS &kp MINUS &none                                       &kp KP_DOT &kp N4 &kp N5 &kp N6 &kp N0 &trans
-    &trans &none     &none        &none    &none     &none &trans &trans           &trans &trans &none  &kp N1 &kp N2 &kp N3 &none  &trans
-    &trans &trans    &trans       &trans   &trans    &trans                                      &trans &trans &trans &trans &trans &trans
+&none &none     &none        &none    &none     &none                                      &kp N0  &kp N7 &kp N8 &kp N9 &kp BSPC  &trans
+&none &kp SLASH &kp STAR &kp PLUS &kp MINUS &none                                       &kp N0 &kp N4 &kp N5 &kp N6 &kp RETURN &trans
+&none &none     &none        &none    &none     &none &trans &trans           &trans &trans &kp N0  &kp N1 &kp N2 &kp N3 &kp N0  &trans
+&none &trans    &trans       &trans   &trans    &trans                                      &trans &trans &trans &trans &trans &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
 
-		symbols {
-			bindings = <
-    &trans &kp EXCL  &td_at_under_7 &td_hash_under_8      &td_dollar_under_9 &kp PERCENT                                          &kp CARET &kp LS(LBKT)  &kp STAR     &kp LS(RBKT)   &kp PIPE    &kp GRAVE
-    &trans &kp UNDER &kp N4         &kp N5                &kp N6             &kp N0                                               &kp PLUS  &td_lpar_dqt  &td_amps_sqt &td_rpar_grave &kp MINUS   &kp DQT
-    &trans &trans    &kp N1         &kp N2                &kp N3             &trans       &trans &trans        &trans    &trans   &none     &kp LBKT      &kp KP_EQUAL &kp RBKT       &kp TILDE   &kp SQT
-    &trans &trans    &trans         &trans   &trans       &trans                                               &trans    &trans   &trans    &trans        &trans       &trans
-			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-		};
 
 		system {
 			bindings = <
-    &none &none     &none     &kp UP     &none     &none                                                   &bt BT_PRV  &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT &bt BT_CLR
-    &none &none     &kp LEFT  &kp DOWN   &kp RIGHT &none                                               &kp HOME  &kp PG_DN     &kp PG_UP    &kp END      &none      &none
+    &none &none     &none     &kp UP     &none     &none                                               &kp HOME  &kp PG_DN   &kp PGN_UP &kp END2 &none &none
+    &none &none     &kp LEFT  &kp DOWN   &kp RIGHT &none                                               &kp LEFT  &kp DOWN    &kp UP    &kp RIGHT      &none      &none
     &none &kp LG(0) &kp LG(1) &kp LG(2) &kp LG(3) &kp LG(4) &none &none        &out OUT_USB &out OUT_BLE &kp LG(5) &kp LG(6)     &kp LG(7)    &kp LG(8)    &kp LG(9)  &none
     &trans &trans    &trans   &trans    &trans    &trans                                                  &trans    &trans        &trans       &trans    &trans       &trans
 			>;
@@ -187,7 +196,6 @@
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
-
 
 	};
 };
