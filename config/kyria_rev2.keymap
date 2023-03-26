@@ -20,9 +20,9 @@
 #define HMR_D am LGUI D
 #define HMR_F am LCTRL F
 
-#define HMR_J as RCTRL J
+#define HMR_J am RCTRL J
 #define HMR_K am RGUI K
-#define HMR_COL am RSHIFT SEMI
+#define HMR_COL as RSHIFT SEMI
 
 &mt {
     flavor = "hold-preferred";
