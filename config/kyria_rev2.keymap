@@ -11,11 +11,10 @@
 
 
 #define DEF 0
-#define NUM 1
-#define SYMB 2
+#define SYMB 1
+#define NUM 2
 #define SYS 3
 #define BLANK 4
-#define SYMB2 6
 
 #define HMR_A as LSHIFT A
 #define HMR_D am LGUI D
@@ -38,41 +37,6 @@
 
 
 / {
-    combos {
-        compatible = "zmk,combos";
-        combo_left_esc {
-            timeout-ms = <50>;
-            key-positions = <13 14>;
-            bindings = <&kp ESC>;
-        };
-        combo_left_tab {
-            timeout-ms = <50>;
-            key-positions = <14 15>;
-            bindings = <&kp TAB>;
-        };
-        combo_caps_left {
-            timeout-ms = <50>;
-            key-positions = <26 27>;
-            bindings = <&caps_word>;
-        };
-        combo_right_backspace {
-            timeout-ms = <50>;
-            key-positions = <21 22>;
-            bindings = <&kp BSPC>;
-        };
-        combo_right_return {
-            timeout-ms = <50>;
-            key-positions = <20 21>;
-            bindings = <&kp RETURN>;
-        };
-        combo_right_leader {
-            timeout-ms = <50>;
-            key-positions = <36 37>;
-            bindings = <&kp BSLH>;
-        };
-    };
-
-
     behaviors {
         am: alpha_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -92,56 +56,6 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-        // TAP_DANCES
-        td_lpar_dqt: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_LPAR_DQT";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LPAR>, <&kp DQT>;
-        };
-        td_amps_sqt: tap_dance_1 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_AMPS_SQT";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp AMPS>, <&kp SQT>;
-        };
-        td_rpar_grave: tap_dance_2 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_RPAR_GRAVE";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp RPAR>, <&kp GRAVE>;
-        };
-        td_space_under_space: tap_dance_3 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_SPACE_UNDER_SPACE";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp SPACE>, <&kp UNDER>, <&kp SPACE>;
-        };
-        td_at_under_7: tap_dance_4 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_AT_UNDER_7";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp N7>, <&kp AT>;
-        };
-        td_hash_under_8: tap_dance_5 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_HASH_UNDER_8";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp N8>, <&kp HASH>;
-        };
-        td_dollar_under_9: tap_dance_6 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_DOLLAR_UNDER_9";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp N9>, <&kp DOLLAR>;
-        };
     };
 
 	keymap {
@@ -149,29 +63,31 @@
 
 		default_layer {
 			bindings = <
-&none &kp Q    &kp W    &kp E     &kp R     &kp T                                                  &kp Y      &kp U    &kp I     &kp O   &kp P    &none
-&none &HMR_A   &kp S    &HMR_D    &HMR_F    &kp G                                                  &kp H      &HMR_J   &HMR_K    &kp L   &HMR_COL &none
-&none &kp Z    &kp X    &kp C     &kp V     &kp B &kp PSCRN &kp DEL        &kp INSERT &caps_word   &kp N      &kp M    &kp COMMA &kp DOT &kp FSLH &none
-               &kp LALT &tog DEF  &kp SPACE &none &none     &none          &none      &tog SYMB    &kp RETURN &kp LALT
+&none &kp Q    &kp W    &kp E     &kp R     &kp T                                                    &kp Y      &kp U      &kp I     &kp O   &kp P    &none
+&none &HMR_A   &kp S    &HMR_D    &HMR_F    &kp G                                                    &kp H      &HMR_J     &HMR_K    &kp L   &HMR_COL &none
+&none &kp Z    &kp X    &kp C     &kp V     &kp B     &kp PSCRN &kp DEL        &kp INSERT &caps_word &kp N      &kp M      &kp COMMA &kp DOT &kp FSLH &none
+                        &kp LALT  &tog DEF  &kp SPACE &none     &none          &none      &sl SYS   &sl SYMB  &sl NUM   &kp LALT
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+
 		};
+
 		symbols {
 			bindings = <
-&none &kp EXCL  &kp AT      &kp HASH &kp DOLLAR &kp PERCENT                             &kp CARET  &kp LS(LBKT) &kp STAR     &kp LS(RBKT) &kp BSPC   &none
-&none &kp UNDER &kp SQT   &kp DQT  &kp MINUS    &none                               &kp PLUS   &kp LPAR     &kp AMPS     &kp RPAR     &kp RETURN &none
-&none &kp TAB     &kp GRAVE &kp PIPE   &kp TILDE      &none       &none &none     &none &none &none      &kp LBKT     &kp KP_EQUAL &kp RBKT     &kp ESC  &none
-                            &kp LALT &tog DEF   &kp SPACE   &none &none     &none &none &tog NUM   &tog SYS     &kp LALT
+&none &kp EXCL  &kp AT    &kp HASH &kp DOLLAR &kp PERCENT                                &kp CARET  &kp LS(LBKT) &kp STAR     &kp LS(RBKT) &kp BSPC   &none
+&none &kp UNDER &kp SQT   &kp DQT  &kp MINUS  &kp BSLH                                   &kp PLUS   &kp LPAR     &kp AMPS     &kp RPAR     &kp RETURN &none
+&none &kp TAB   &kp GRAVE &kp PIPE &kp TILDE  &kp ESC     &none &none     &none &none    &none      &kp LBKT     &kp KP_EQUAL &kp RBKT     &kp FSLH   &none
+                          &none    &none      &kp SPACE   &none &none     &none &tog DEF &tog SYM   &tog DEF     &none
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
 
 		numpad {
 			bindings = <
-&none &none     &none        &none    &none     &none                                      &kp N0  &kp N7 &kp N8 &kp N9 &kp BSPC  &trans
-&none &kp SLASH &kp STAR &kp PLUS &kp MINUS &none                                       &kp N0 &kp N4 &kp N5 &kp N6 &kp RETURN &trans
-&none &none     &none        &none    &none     &none &trans &trans           &trans &trans &kp N0  &kp N1 &kp N2 &kp N3 &kp N0  &trans
-&none &trans    &trans       &trans   &trans    &trans                                      &trans &trans &trans &trans &trans &trans
+&none &none     &none    &none    &none     &none                                          &kp N0   &kp N7   &kp N8 &kp N9 &kp BSPC  &trans
+&none &kp SLASH &kp STAR &kp PLUS &kp MINUS &none                                          &kp N0   &kp N4   &kp N5 &kp N6 &kp RETURN &trans
+&none &none     &none    &none    &none     &none  &trans &trans           &trans &trans   &kp N0   &kp N1   &kp N2 &kp N3 &kp N0  &trans
+                &none    &trans   &kp SPACE &trans &trans &trans           &trans &tog DEF &tog DEF &tog NUM &trans &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
@@ -179,10 +95,10 @@
 
 		system {
 			bindings = <
-    &none &none     &none     &kp UP     &none     &none                                               &kp HOME  &kp PG_DN   &kp PGN_UP &kp END2 &none &none
-    &none &none     &kp LEFT  &kp DOWN   &kp RIGHT &none                                               &kp LEFT  &kp DOWN    &kp UP    &kp RIGHT      &none      &none
-    &none &kp LG(0) &kp LG(1) &kp LG(2) &kp LG(3) &kp LG(4) &none &none        &out OUT_USB &out OUT_BLE &kp LG(5) &kp LG(6)     &kp LG(7)    &kp LG(8)    &kp LG(9)  &none
-    &trans &trans    &trans   &trans    &trans    &trans                                                  &trans    &trans        &trans       &trans    &trans       &trans
+&none  &bt BT_PRV &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT                                   &kp HOME &kp PG_DN &kp PGN_UP &kp END   &none  &none
+&none  &none      &none        &none        &none        &bt BT_CLR                                   &kp LEFT &kp DOWN  &kp UP     &kp RIGHT &none  &none
+&none  &none      &none        &none        &none        &none      &none  &none      &none  &none    &none    &none     &none      &none     &none  &none
+                  &trans       &trans       &kp SPACE    &kp SPACE  &trans &trans     &trans &tog SYS &tog DEF &tog DEF  &trans     &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
