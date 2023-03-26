@@ -78,7 +78,7 @@
 &none &kp EXCL  &kp AT    &kp HASH &kp DOLLAR &kp PERCENT                                &kp CARET  &kp LS(LBKT) &kp STAR     &kp LS(RBKT) &kp BSPC   &none
 &none &kp UNDER &kp SQT   &kp DQT  &kp MINUS  &kp BSLH                                   &kp PLUS   &kp LPAR     &kp AMPS     &kp RPAR     &kp RETURN &none
 &none &kp TAB   &kp GRAVE &kp PIPE &kp TILDE  &kp ESC     &none &none     &none &none    &none      &kp LBKT     &kp KP_EQUAL &kp RBKT     &kp FSLH   &none
-                          &none    &none      &kp SPACE   &none &none     &none &tog DEF &tog SYM   &tog DEF     &none
+                          &none    &none      &kp SPACE   &none &none     &none &tog DEF &tog SYMB   &tog DEF     &none
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
