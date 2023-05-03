@@ -4,10 +4,12 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include "../zmk-nodefree-config/helper.h"
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
+#include "include/behaviours_homerow_mods.dtsi"
 
 
 #define DEF 0
@@ -15,14 +17,6 @@
 #define NUM 2
 #define SYS 3
 #define BLANK 4
-
-#define HMR_A as LSHIFT A
-#define HMR_D am LGUI D
-#define HMR_F am LCTRL F
-
-#define HMR_J am RCTRL J
-#define HMR_K am RGUI K
-#define HMR_COL as RSHIFT SEMI
 
 &mt {
     flavor = "hold-preferred";
@@ -35,30 +29,173 @@
 };
 
 &sl {
-    release-after-ms = <1500>;
+    release-after-ms = <500>;
 };
 
+
+// / {
+//     macros {
+//         exit_symbol: exit_symbol {
+//             label = "ZM_zed_em_kay";
+//             compatible = "zmk,behavior-macro";
+//             #binding-cells = <0>;
+//             bindings = <&macro_tap &kp RETURN &to DEF>;
+//         };
+//         i3_1: i3_1 {
+//             label = "ZM_zed_em_kay";
+//             compatible = "zmk,behavior-macro";
+//             #binding-cells = <0>;
+//             bindings
+//                 = <&macro_press &kp LGUI>
+//                 , <&macro_tap &kp N1 >
+//                 , <&macro_release &kp LGUI>
+//                 ;
+//         };
+//         i3_2: i3_2 {
+//             label = "ZM_zed_em_kay";
+//             compatible = "zmk,behavior-macro";
+//             #binding-cells = <0>;
+//             bindings
+//                 = <&macro_press &kp LGUI>
+//                 , <&macro_tap &kp N2 >
+//                 , <&macro_release &kp LGUI>
+//                 ;
+//         };
+//         i3_3: i3_3 {
+//             label = "ZM_zed_em_kay";
+//             compatible = "zmk,behavior-macro";
+//             #binding-cells = <0>;
+//             bindings
+//                 = <&macro_press &kp LGUI>
+//                 , <&macro_tap &kp N3 >
+//                 , <&macro_release &kp LGUI>
+//                 ;
+//         };
+//         i3_4: i3_4 {
+//             label = "ZM_zed_em_kay";
+//             compatible = "zmk,behavior-macro";
+//             #binding-cells = <0>;
+//             bindings
+//                 = <&macro_press &kp LGUI>
+//                 , <&macro_tap &kp N4 >
+//                 , <&macro_release &kp LGUI>
+//                 ;
+//         };
+//         i3_5: i3_5 {
+//             label = "ZM_zed_em_kay";
+//             compatible = "zmk,behavior-macro";
+//             #binding-cells = <0>;
+//             bindings
+//                 = <&macro_press &kp LGUI>
+//                 , <&macro_tap &kp N5 >
+//                 , <&macro_release &kp LGUI>
+//                 ;
+//         };
+//         i3_6: i3_6 {
+//             label = "ZM_zed_em_kay";
+//             compatible = "zmk,behavior-macro";
+//             #binding-cells = <0>;
+//             bindings
+//                 = <&macro_press &kp LGUI>
+//                 , <&macro_tap &kp N6 >
+//                 , <&macro_release &kp LGUI>
+//                 ;
+//         };
+//         i3_7: i3_7 {
+//             label = "ZM_zed_em_kay";
+//             compatible = "zmk,behavior-macro";
+//             #binding-cells = <0>;
+//             bindings
+//                 = <&macro_press &kp LGUI>
+//                 , <&macro_tap &kp N7 >
+//                 , <&macro_release &kp LGUI>
+//                 ;
+//         };
+//         i3_8: i3_8 {
+//             label = "ZM_zed_em_kay";
+//             compatible = "zmk,behavior-macro";
+//             #binding-cells = <0>;
+//             bindings
+//                 = <&macro_press &kp LGUI>
+//                 , <&macro_tap &kp N8 >
+//                 , <&macro_release &kp LGUI>
+//                 ;
+//         };
+//         i3_9: i3_9 {
+//             label = "ZM_zed_em_kay";
+//             compatible = "zmk,behavior-macro";
+//             #binding-cells = <0>;
+//             bindings
+//                 = <&macro_press &kp LGUI>
+//                 , <&macro_tap &kp N9 >
+//                 , <&macro_release &kp LGUI>
+//                 ;
+//         };
+//     };
+// };
+//
+// / {
+//     combos {
+//         compatible = "zmk,combos";
+//         combo_caps_right {
+//             timeout-ms = <50>;
+//             key-positions = <20 21 22>;
+//             bindings = <&caps_word>;
+//         };
+//         combo_caps_left {
+//             timeout-ms = <50>;
+//             key-positions = <14 15 16>;
+//             bindings = <&caps_word>;
+//         };
+//         combo_i3_1 {
+//             timeout-ms = <50>;
+//             key-positions = <2 14>;
+//             bindings = <&i3_1>;
+//         };
+//         combo_i3_2 {
+//             timeout-ms = <50>;
+//             key-positions = <3 15>;
+//             bindings = <&i3_2>;
+//         };
+//         combo_i3_3 {
+//             timeout-ms = <50>;
+//             key-positions = <4 16>;
+//             bindings = <&i3_3>;
+//         };
+//         combo_i3_4 {
+//             timeout-ms = <50>;
+//             key-positions = <14 26>;
+//             bindings = <&i3_4>;
+//         };
+//         combo_i3_5 {
+//             timeout-ms = <50>;
+//             key-positions = <15 27>;
+//             bindings = <&i3_5>;
+//         };
+//         combo_i3_6 {
+//             timeout-ms = <50>;
+//             key-positions = <16 28>;
+//             bindings = <&i3_6>;
+//         };
+//         combo_i3_7 {
+//             timeout-ms = <50>;
+//             key-positions = <13 14>;
+//             bindings = <&i3_7>;
+//         };
+//         combo_i3_8 {
+//             timeout-ms = <50>;
+//             key-positions = <14 15>;
+//             bindings = <&i3_8>;
+//         };
+//         combo_i3_9 {
+//             timeout-ms = <50>;
+//             key-positions = <15 16>;
+//             bindings = <&i3_9>;
+//         };
+//     };
+// };
+
 / {
-    behaviors {
-        am: alpha_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "ALPHA_MT";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <300>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-        as: alpha_shift {
-            compatible = "zmk,behavior-hold-tap";
-            label = "ALPHA_SFT";
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            quick-tap-ms = <150>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-    };
 
 	keymap {
 		compatible = "zmk,keymap";
@@ -66,7 +203,7 @@
 		default_layer {
 			bindings = <
 &none &kp Q    &kp W    &kp E     &kp R     &kp T                                                    &kp Y      &kp U      &kp I     &kp O   &kp P    &none
-&none &HMR_A    &kp S    &HMR_D    &HMR_F     &kp G                                                  &kp H      &HMR_J     &HMR_K    &kp L   &HMR_COL &none
+&none &hm_shift_l LSHFT A    &kp S    &hm_l LGUI D    &hm_l LCTRL F     &kp G                        &kp H      &hm_r RCTRL J     &hm_r RGUI K    &kp L   &hm_shift_r RSHFT SEMI &none
 &none &kp Z    &kp X    &kp C     &kp V     &kp B     &kp PSCRN &kp DEL        &kp INSERT &caps_word &kp N      &kp M      &kp COMMA &kp DOT &kp FSLH &none
                         &kp LALT  &to  DEF  &kp SPACE &kp X     &kp BSPC       &kp TAB    &to  SYS   &sl SYMB  &to NUM   &kp LALT
 			>;
@@ -98,9 +235,9 @@
 
 		system {
 			bindings = <
-&none  &bt BT_PRV &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT                                   &kp HOME &kp PG_DN &kp PG_UP  &kp END   &kp BSPC  &none
-&none  &none      &none        &none        &none        &none                                        &kp LEFT &kp DOWN  &kp UP     &kp RIGHT &kp RETURN  &none
-&none  &out OUT_TOG      &none        &none        &none        &bt BT_CLR     &none  &none      &none  &none    &none    &none     &none      &none     &kp KP_EQUAL  &none
+&none  &none &none &none &none &none                                                        &kp HOME   &kp PG_DN &kp PG_UP  &kp END   &kp BSPC    &none
+&none  &none &none &none &none &none                                                        &kp LEFT   &kp DOWN  &kp UP     &kp RIGHT &kp RETURN  &none
+&none  &none &none &none &none &none &out OUT_USB  &out OUT_BLE      &bt BT_PRV  &bt BT_NXT &none     &none      &none     &none       &kp KP_EQUAL  &none
                           &trans    &trans      &to DEF   &trans &trans     &trans &to SYS &to DEF &to NUM     &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
