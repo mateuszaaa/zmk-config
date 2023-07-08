@@ -228,7 +228,7 @@ behaviours {
 &none &kp EXCL  &kp AT    &kp HASH &kp DOLLAR &kp PERCENT                                &kp CARET  &kp LS(LBKT) &kp STAR     &kp LS(RBKT) &kp BSPC   &none
 &none &kp UNDER &kp SQT   &kp DQT  &kp MINUS  &kp BSLH                                   &kp PLUS   &kp LPAR     &kp AMPS     &kp RPAR     &kp RETURN &none
 &none &kp TAB   &kp GRAVE &kp ESC &kp PIPE  &kp TILDE     &trans &trans     &trans &trans    &none      &kp LBKT     &kp KP_EQUAL &kp RBKT     &kp FSLH   &none
-                          &trans    &trans      &to DEF   &trans &trans     &trans &trans &none &trans     &trans
+                          &trans    &trans      &to DEF   &trans &trans     &none &to DEF &to DEF &to DEF     &none
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
@@ -239,7 +239,7 @@ behaviours {
 &none &none     &none    &none    &none     &none                                          &none &kp N7   &kp N8 &kp N9 &kp BSPC  &trans
 &none &kp SLASH &kp STAR &kp PLUS &kp MINUS &none                                          &kp COMMA   &kp N4   &kp N5 &kp N6 &kp RETURN &trans
 &none &none     &kp LPAR    &none    &kp RPAR     &none  &trans &trans           &trans &trans   &kp DOT   &kp N1   &kp N2 &kp N3 &kp N0  &trans
-                          &trans    &trans      &to DEF   &trans &trans     &trans &trans &to DEF &trans     &trans
+                          &trans    &trans      &to DEF   &trans &trans     &none &to DEF &to DEF &to DEF     &none
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
@@ -250,7 +250,7 @@ behaviours {
 &none  &none &none &none &none &none                                                        &kp HOME   &kp PG_DN &kp PG_UP  &kp END   &kp BSPC    &none
 &none  &none &none &none &none &none                                                        &kp LEFT   &kp DOWN  &kp UP     &kp RIGHT &kp RETURN  &none
 &none  &none &none &none &none &none &out OUT_USB  &out OUT_BLE      &bt BT_PRV  &bt BT_NXT &none     &none      &none     &none       &kp KP_EQUAL  &none
-                          &trans    &trans      &to DEF   &trans &trans     &trans &trans &to DEF &trans     &trans
+                          &trans    &trans      &to DEF   &trans &trans     &none &to DEF &to DEF &to DEF     &none
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
