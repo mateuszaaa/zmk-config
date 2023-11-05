@@ -205,9 +205,9 @@
 		default_layer {
 			bindings = <
 &kp F13 &kp Q    &kp W    &kp E     &kp R     &kp T                                                    &kp Y      &kp U      &kp I     &kp O   &kp P    &kp F16
-&mt LSHIFT F14 &hm_shift_l LSHFT A    &kp S    &hm_l LGUI D    &hm_l LCTRL F     &kp G                        &kp H      &hm_r RCTRL J     &hm_r RGUI K    &kp L   &hm_shift_r RSHFT SEMI &mt RSHIFT F17
-&kp F15 &lt NUM Z    &lt WM X    &kp C     &kp V     &kp B     &kp PSCRN &kp DEL        &kp INSERT &caps_word &kp N      &kp M      &kp COMMA &kp DOT &kp FSLH &kp F18
-                        &kp LALT  &kp LSHIFT &kp SPACE &kp ESC &kp BSPC       &caps_word &to SYS  &sl SYMB &to NUM   &kp LALT
+&mt LSHIFT F14 &hm_shift_l LSHFT A    &lt SYS S    &hm_l LGUI D    &hm_l LCTRL F     &kp G                        &kp H      &hm_r RCTRL J     &hm_r RGUI K    &kp L   &hm_shift_r RSHFT SEMI &mt RSHIFT F17
+&kp F15 &lt NUM Z    &lt WM X    &kp C     &kp V     &kp B     &kp PSCRN &kp DEL        &kp INSERT &caps_word &kp N      &kp M      &kp COMMA &kp DOT &lt SYMB FSLH &kp F18
+                        &kp LALT  &kp BSPC &kp SPACE &kp ESC &none       &caps_word &kp LSHIFT  &sl SYMB &none   &kp RALT
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 
@@ -216,9 +216,9 @@
 		symbols {
 			bindings = <
 &none &kp EXCL  &kp AT    &kp HASH &kp DOLLAR &kp PERCENT                                &kp CARET  &kp LS(LBKT) &kp STAR     &kp LS(RBKT) &kp BSPC   &none
-&none &kp UNDER &kp SQT   &kp DQT  &kp MINUS  &kp BSLH                                   &kp PLUS   &kp LPAR     &kp AMPS     &kp RPAR     &kp RETURN &none
-&none &kp TAB   &kp GRAVE &kp ESC &kp PIPE  &kp TILDE     &trans &trans     &trans &trans    &none      &kp LBKT     &kp KP_EQUAL &kp RBKT     &kp FSLH   &none
-                          &trans    &trans      &to DEF   &trans &trans     &none &to DEF &none &to DEF     &none
+&none &kp UNDER &kp SQT   &hm_l LGUI DQT  &hm_l LCTRL MINUS  &kp BSLH                                   &kp PLUS   &hm_r RCTRL LPAR     &hm RGUI AMPS     &kp RPAR     &kp RETURN &none
+&none &kp TAB   &kp BSLH &kp PIPE &kp TILDE  &none     &none &none     &none &none    &none      &kp LBKT     &kp KP_EQUAL &kp RBKT     &kp FSLH   &none
+                          &trans    &trans      &trans   &trans &trans     &trans &trans &none &trans     &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
@@ -226,10 +226,10 @@
 
 		numpad {
 			bindings = <
-&none &none     &none    &none    &none     &none                                          &none &kp N7   &kp N8 &kp N9 &kp BSPC  &trans
-&none &kp SLASH &kp STAR &kp PLUS &kp MINUS &none                                          &kp COMMA   &kp N4   &kp N5 &kp N6 &kp RETURN &trans
-&none &none     &kp LPAR    &none    &kp RPAR     &none  &trans &trans           &trans &trans   &kp DOT   &kp N1   &kp N2 &kp N3 &kp N0  &trans
-                          &trans    &trans      &to DEF   &trans &trans     &none &to DEF &to DEF &to DEF     &none
+&none &none &none &none &none &none                              &none      &kp N7   &kp N8  &kp N9  &kp BSPC   &trans
+&none &none &none &trans &trans &none                            &kp COMMA  &kp N4   &kp N5  &kp N6  &kp RETURN &trans
+&none &none &none &none &none &none  &none &none     &none &none &kp DOT    &kp N1   &kp N2  &kp N3  &kp N0     &trans
+                  &trans &trans &trans  &trans &trans     &trans &trans &trans    &trans  &none
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
@@ -237,10 +237,10 @@
 
 		system {
 			bindings = <
-&none  &none &none &none &none &none                                                        &kp HOME   &kp PG_DN &kp PG_UP  &kp END   &kp BSPC    &none
-&none  &none &none &none &none &none                                                        &kp LEFT   &kp DOWN  &kp UP     &kp RIGHT &kp RETURN  &none
-&none  &none &none &none &none &none &out OUT_USB  &out OUT_BLE      &bt BT_PRV  &bt BT_NXT &none     &none      &none     &none       &kp KP_EQUAL  &none
-                          &trans    &trans      &to DEF   &trans &trans     &none &to DEF &to DEF &to DEF     &bt BT_CLR
+&none  &none &none &none  &none  &none                                                        &kp HOME   &kp PG_DN &kp PG_UP  &kp END   &kp BSPC    &none
+&none  &none &none &none  &none  &none                                                        &kp LEFT   &kp DOWN  &kp UP     &kp RIGHT &kp RETURN  &none
+&none  &none &none &none  &none  &none  &out OUT_USB  &out OUT_BLE      &bt BT_PRV  &bt BT_NXT &none     &none      &none     &none       &kp KP_EQUAL  &none
+                   &trans &trans &trans &trans        &trans     &none &trans &trans &trasn     &bt BT_CLR
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
