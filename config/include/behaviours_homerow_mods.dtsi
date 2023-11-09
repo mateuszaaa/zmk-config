@@ -40,7 +40,7 @@
 
         hm_ll: homerow_mods_left_layer_tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_LEFT";
+            label = "HOMEROW_MODS_LEFT2";
             #binding-cells = <2>;
             bindings = <&lt>,  <&kp>;
 
