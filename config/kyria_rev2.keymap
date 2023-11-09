@@ -237,9 +237,9 @@
 
 		system {
 			bindings = <
-&trans  &trans &trans &trans  &trans  &trans                                                        &kp HOME   &kp PG_DN &kp PG_UP  &kp END   &kp BSPC    &none
-&trans  &trans &trans &trans  &trans  &trans                                                        &kp LEFT   &kp DOWN  &kp UP     &kp RIGHT &kp RETURN  &none
-&trans  &trans &trans &trans  &trans  &trans  &out OUT_USB  &out OUT_BLE      &bt BT_PRV  &bt BT_NXT &none     &none      &none     &none       &kp KP_EQUAL  &none
+&trans  &trans &trans &trans  &trans  &trans                                                        &kp HOME   &kp PG_DN &kp PG_UP  &kp END   &kp BSPC    &bt BT_SEL 0
+&trans  &trans &trans &trans  &trans  &trans                                                        &kp LEFT   &kp DOWN  &kp UP     &kp RIGHT &kp RETURN  &bt BT_SEL 1
+&trans  &trans &trans &trans  &trans  &trans  &out OUT_USB  &out OUT_BLE      &bt BT_PRV  &bt BT_NXT &none     &none      &none     &none       &kp KP_EQUAL  &bt BT_SEL 2
                    &trans &trans &trans &trans        &trans     &none &trans &trans &trans     &bt BT_CLR
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
