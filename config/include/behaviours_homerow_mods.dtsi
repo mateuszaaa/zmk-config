@@ -38,6 +38,21 @@
             hold-trigger-on-release;             // requires PR #1423
         };
 
+        hm_ll: homerow_mods_left_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_LEFT";
+            #binding-cells = <2>;
+            bindings = <&lt>,  <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick-tap-ms = <175>;                // repeat on tap-into-hold
+            global-quick-tap-ms = <150>;         // requires PR #1387
+            hold-trigger-key-positions = <KEYS_R KEYS_T>;
+            hold-trigger-on-release;             // requires PR #1423
+        };
+
+
         hm_r: homerow_mods_right {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_RIGHT";
@@ -51,7 +66,6 @@
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
             hold-trigger-on-release;             // requires PR #1423
         };
-
 
         // Positional Homerow mods for shift
         // Use faster tapping term and disable some features that may
